@@ -121,6 +121,8 @@ Validate (after tamper): {
 
 ## Step 4 — Go deeper
 
+- **Exercises** (prove you own it: 6 challenges, tweak → feature → rewrite) → [`EXERCISES.md`](EXERCISES.md)
+- **Tests** (your safety net — run after every change) → `npm test` (15 checks, zero new libraries)
 - **Glossary** (hash? nonce? difficulty? in one sentence each) → [`GLOSSARY.md`](GLOSSARY.md)
 - **Full reference** (protocol tables, concepts, what's missing) → [`README.md`](README.md)
 - **Terminal client** (same as browser, but text) → run `npm run client` in a second terminal

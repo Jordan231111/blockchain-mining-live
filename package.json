@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "client": "node src/client.js",
+    "test": "node --test test/",
     "lesson:hashing": "node examples/01-hashing.js",
     "lesson:mining": "node examples/02-mining.js",
     "lesson:chain": "node examples/03-blockchain.js"
