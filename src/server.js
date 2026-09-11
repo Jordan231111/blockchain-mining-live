@@ -43,7 +43,7 @@ const PORT = process.env.PORT || 3000;
 // ------------------------------------------------------------------
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__adirectoryname, '..', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Small REST helpers (handy for curl; socket.io is the main API).
 const blockchain = new Blockchain(2); // difficulty 2 = fast, visible mining
