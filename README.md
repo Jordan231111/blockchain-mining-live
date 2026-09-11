@@ -1,5 +1,8 @@
 # ⛓️ Blockchain Mining — Live
 
+> **New here? Start with [`START-HERE.md`](START-HERE.md)** — 15-minute guided tour,
+> zero experience needed. Confused by a word? See [`GLOSSARY.md`](GLOSSARY.md).
+
 > A **super-readable teaching codebase** for the exact assignment in the screenshot:
 > *server file + client file, hashing + server/client communication over socket.io, live mining demo. No consensus yet.*
 
