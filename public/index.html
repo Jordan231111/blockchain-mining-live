@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⛓️ Blockchain Mining — Live Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- socket.io client is served automatically by the server at /socket.io/socket.io.js -->
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <header>
+    <h1>⛓️ Blockchain Mining — Live</h1>
+    <p class="subtitle">
+      Hashing + server ↔ client communication over <code>socket.io</code>.
+      No consensus yet — just the basic concept, visualized.
+    </p>
+    <div class="status-row">
+      <span id="conn-status" class="pill">connecting…</span>
+      <span id="valid-status" class="pill">validating…</span>
+      <span id="block-count" class="pill">0 blocks</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- Controls ------------------------------------------------ -->
+    <section class="card">
+      <h2>1 · Mine a block</h2>
+      <p class="hint">Type anything. The server brute-forces a <code>nonce</code> until the hash starts with <code id="target-preview">00</code>.</p>
+      <div class="row">
+        <input id="data-input" type="text" placeholder="e.g. Alice → Bob $5" value="Alice → Bob $5" />
+        <button id="mine-btn">⛏️ Mine</button>
+      </div>
+      <div class="row">
+        <label for="difficulty">Difficulty (leading zeroes):</label>
+        <input id="difficulty" type="range" min="1" max="5" value="2" />
+        <span id="difficulty-val">2</span>
+      </div>
+      <!-- Live hash attempts stream here while mining -->
+      <div id="mining-live" class="mining-live hidden">
+        <div class="spinner"></div>
+        <div>
+          <div id="live-hash" class="mono">…</div>
+          <div id="live-meta" class="hint">attempt #0 · nonce 0</div>
+        </div>
+      </div>
+      <div id="mine-msg" class="hint"></div>
+    </section>
+
+    <!-- Chain --------------------------------------------------- -->
+    <section class="card">
+      <h2>2 · The chain <span class="hint">(newest at bottom)</span></h2>
+      <div id="chain"></div>
+    </section>
+
+    <!-- Learn --------------------------------------------------- -->
+    <section class="card">
+      <h2>3 · What am I looking at?</h2>
+      <ol class="learn">
+        <li><b>Hash</b> = SHA-256 fingerprint of <code>index + time + data + previousHash + nonce</code>.</li>
+        <li><b>Mining</b> = trying <code>nonce = 0,1,2…</code> until the hash starts with N zeroes. That's it. That's proof-of-work.</li>
+        <li><b>Chaining</b> = each block stores the previous block's hash. Edit any old block and every link after it breaks.</li>
+        <li><b>Live</b> = the server streams <code>mine:progress</code> events over socket.io so you watch the search in real time.</li>
+      </ol>
+      <div class="row">
+        <button id="tamper-btn" class="danger">🧪 Tamper with block #1</button>
+        <span class="hint">Corrupts block #1 without re-mining → validation turns red.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="hint">Open <code>src/server.js</code> + <code>public/app.js</code> side-by-side — every socket.io event is commented.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

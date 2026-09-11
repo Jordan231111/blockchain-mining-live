@@ -1,0 +1,81 @@
+/* Minimal dark theme — readability first, no framework. */
+:root {
+  --bg: #0f1117;
+  --card: #1a1e2a;
+  --border: #2c3245;
+  --text: #e8eaf0;
+  --muted: #9aa3b2;
+  --accent: #ffb020;
+  --green: #3ddc84;
+  --red: #ff5c5c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  max-width: 860px; margin: 0 auto; padding: 24px 16px 64px;
+}
+header h1 { margin: 0 0 4px; }
+.subtitle { color: var(--muted); margin-top: 0; }
+code {
+  background: #262c3f; padding: 1px 6px; border-radius: 6px;
+  font-family: ui-monospace, Menlo, monospace; font-size: 0.9em;
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px; margin: 16px 0;
+}
+.card h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.hint { color: var(--muted); font-size: 0.9rem; }
+.mono { font-family: ui-monospace, Menlo, monospace; word-break: break-all; }
+.row { display: flex; gap: 10px; align-items: center; margin: 10px 0; flex-wrap: wrap; }
+input[type="text"] {
+  flex: 1; min-width: 220px; padding: 10px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: #10131d; color: var(--text);
+}
+button {
+  padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer;
+  background: var(--accent); color: #221a00; font-weight: 700; font-size: 0.95rem;
+}
+button:disabled { opacity: 0.5; cursor: wait; }
+button.danger { background: transparent; border: 1px solid var(--red); color: var(--red); }
+.pill {
+  display: inline-block; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--border); font-size: 0.85rem; color: var(--muted);
+}
+.pill.ok { color: var(--green); border-color: var(--green); }
+.pill.bad { color: var(--red); border-color: var(--red); }
+.status-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Live mining animation */
+.mining-live {
+  display: flex; gap: 12px; align-items: center; margin-top: 12px;
+  background: #10131d; border: 1px solid var(--border);
+  padding: 10px 12px; border-radius: 8px;
+}
+.mining-live.hidden { display: none; }
+.spinner {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  border: 3px solid var(--border); border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Block cards */
+.block {
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px; margin: 10px 0; background: #141826;
+}
+.block.genesis { border-left: 4px solid var(--muted); }
+.block.valid { border-left: 4px solid var(--green); }
+.block.invalid { border-left: 4px solid var(--red); }
+.block-head { display: flex; justify-content: space-between; align-items: center; }
+.block-hash { color: var(--green); font-size: 0.85rem; }
+.block.invalid .block-hash { color: var(--red); }
+.block table { width: 100%; font-size: 0.85rem; border-collapse: collapse; margin-top: 8px; }
+.block td { padding: 3px 4px; vertical-align: top; }
+.block td:first-child { color: var(--muted); width: 110px; }
+.link-arrow { text-align: center; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+
+.learn li { margin: 6px 0; line-height: 1.5; }
+footer { text-align: center; margin-top: 24px; }

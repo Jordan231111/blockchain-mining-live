@@ -1,0 +1,20 @@
+{
+  "name": "blockchain-mining-live",
+  "version": "1.0.0",
+  "description": "Teachable blockchain demo: hashing + proof-of-work mining + live socket.io server/client communication.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "client": "node src/client.js",
+    "lesson:hashing": "node examples/01-hashing.js",
+    "lesson:mining": "node examples/02-mining.js",
+    "lesson:chain": "node examples/03-blockchain.js"
+  },
+  "keywords": ["blockchain", "mining", "socket.io", "tutorial"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  }
+}
