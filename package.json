@@ -1,0 +1,27 @@
+{
+  "name": "blockchain-mining-live",
+  "version": "1.0.0",
+  "description": "Two-file blockchain socket demo with proof-of-work validation and fork resolution.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "client": "node src/client.js",
+    "demo": "node demo.js",
+    "test": "node --test test/"
+  },
+  "keywords": [
+    "blockchain",
+    "mining",
+    "socket.io",
+    "consensus"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
